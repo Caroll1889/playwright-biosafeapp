@@ -44,10 +44,9 @@ async function generateToken() {
         return;
     }
 
-    const credentials = JSON.parse(fs.readFileSync(CREDENTIALS_PATH, 'utf-8')).web;
+    const credentialsRaw = JSON.parse(fs.readFileSync(CREDENTIALS_PATH, 'utf-8'));
+    const credentials = credentialsRaw.installed || credentialsRaw.web;
     const { client_id, client_secret, redirect_uris } = credentials;
-    //const redirect_uris = ['http://localhost'];
-
     const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);
 
     if (fs.existsSync(TOKEN_PATH)) {

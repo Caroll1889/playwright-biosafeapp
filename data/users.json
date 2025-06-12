@@ -1,0 +1,9 @@
+{
+    "users": {
+        "correcto": {
+            "name": "Juan Perez",
+            "password": "Password123!",
+            "email": "newplaywright.test@gmail.com"
+        }
+    } 
+}
